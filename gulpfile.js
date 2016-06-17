@@ -1,28 +1,39 @@
 const gulp = require('gulp');
-const del = require('del');
-const typescript = require('gulp-typescript');
-const tscConfig = require('./tsconfig.json');
-const sourcemaps = require('gulp-sourcemaps');
-const tslint = require('gulp-tslint');
+const runSequence = require('run-sequence');
+const requireDir = require('require-dir');
+requireDir('gulp', {recurse: true});
 
-gulp.task('clean', () => {
-  return del(['build']);
+gulp.task('build', done => {
+  runSequence(
+    'build-clean',
+    ['copy', 'styl-2-css', 'styl-2-css-stream', 'tslint', 'ts-2-js'],
+    done);
 });
 
-gulp.task('tslint', function () {
-  return gulp.src('app/**/*.ts')
-    .pipe(tslint())
-    .pipe(tslint.report('verbose'));
+gulp.task('test-simple', done => {
+  runSequence(
+    'coverage-clean',
+    'karma',
+    'coverage-main',
+    'coverage-summary',
+    done);
 });
 
-gulp.task('ts-2-js', ['clean'], () => {
-  return gulp
-    .src(['app/**/*.ts', 'typings/**/*.d.ts'])
-    .pipe(sourcemaps.init())
-    .pipe(typescript(tscConfig.compilerOptions))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('build'));
+// NOTE: npm test runs build first
+gulp.task('test', done => {
+  runSequence(
+    'test-simple',
+    'coverage-enforcer',
+    'coverage-open',
+    done);
 });
 
-gulp.task('build', ['tslint', 'ts-2-js']);
-gulp.task('default', ['build']);
+gulp.task('start', done => {
+  runSequence(
+    'build',
+    'test-simple',
+    ['serve', 'watch'],
+    done);
+});
+
+gulp.task('default', ['start']);

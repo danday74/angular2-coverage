@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "postinstall": "typings install",
+    "typings": "typings",
     "start": "gulp",
     "build": "gulp build",
-    "postinstall": "typings install",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "typings": "typings"
+    "test": "gulp build && gulp test"
   },
   "license": "ISC",
   "dependencies": {
@@ -27,11 +27,32 @@
     "bootstrap": "^3.3.6"
   },
   "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "connect-modrewrite": "^0.9.0",
     "del": "^2.2.0",
+    "file-url": "^1.1.0",
     "gulp": "^3.9.1",
+    "gulp-intercept": "^0.1.0",
+    "gulp-istanbul-enforcer": "^1.0.3",
+    "gulp-open": "^2.0.0",
+    "gulp-shell": "^0.5.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylus": "^2.4.0",
     "gulp-tslint": "^5.0.0",
     "gulp-typescript": "^2.13.6",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-coverage": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-mocha-reporter": "^2.0.4",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "open": "0.0.5",
+    "phantomjs-prebuilt": "^2.1.7",
+    "remap-istanbul": "^0.6.4",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.2.1",
+    "tslint": "^3.11.0",
     "typings": "^1.0.5"
   }
 }
