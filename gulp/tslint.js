@@ -1,9 +1,10 @@
-const gulp = require('gulp');
-const config = require('../gulp.config');
+const TASK = 'tslint';
+const core = require('../core-gulp-modules');
 const tslint = require('gulp-tslint');
 
-gulp.task('tslint', () => {
-  return gulp.src(config.files.ts)
+core.gulp.task(TASK, () => {
+  core.subHeading(TASK, 'Linting TypeScript');
+  return core.gulp.src(core.config.files.ts)
     .pipe(tslint())
     .pipe(tslint.report('verbose'));
 });

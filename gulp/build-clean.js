@@ -1,6 +1,8 @@
-const gulp = require('gulp');
+const TASK = 'build-clean';
+const core = require('../core-gulp-modules');
 const del = require('del');
 
-gulp.task('build-clean', () => {
+core.gulp.task(TASK, () => {
+  core.subHeading(TASK, 'Deleting build folder');
   return del(['build']);
 });

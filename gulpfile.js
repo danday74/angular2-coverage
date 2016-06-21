@@ -1,39 +1,26 @@
-const gulp = require('gulp');
-const runSequence = require('run-sequence');
+const core = require('./core-gulp-modules');
 const requireDir = require('require-dir');
 requireDir('gulp', {recurse: true});
 
-gulp.task('build', done => {
-  runSequence(
+core.gulp.task('build', done => {
+  core.mainHeading('build', 'Starting build');
+  core.runSequence(
+    'eslint',
     'build-clean',
     ['copy', 'styl-2-css', 'styl-2-css-stream', 'tslint', 'ts-2-js'],
     done);
 });
 
-gulp.task('test-simple', done => {
-  runSequence(
-    'coverage-clean',
-    'karma',
-    'coverage-main',
-    'coverage-summary',
-    done);
-});
-
-// NOTE: npm test runs build first
-gulp.task('test', done => {
-  runSequence(
-    'test-simple',
-    'coverage-enforcer',
-    'coverage-open',
-    done);
-});
-
-gulp.task('start', done => {
-  runSequence(
+core.gulp.task('start', done => {
+  core.runSequence(
     'build',
-    'test-simple',
+    'test-watch',
     ['serve', 'watch'],
     done);
 });
 
-gulp.task('default', ['start']);
+core.gulp.task('default', done => {
+  core.runSequence(
+    'start',
+    done);
+});

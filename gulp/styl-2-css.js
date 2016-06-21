@@ -1,12 +1,13 @@
-const gulp = require('gulp');
-const config = require('../gulp.config');
+const TASK = 'styl-2-css';
+const core = require('../core-gulp-modules');
 const stylus = require('gulp-stylus');
 
-gulp.task('styl-2-css', () => {
-  return gulp
-    .src(config.files.styl)
+core.gulp.task(TASK, () => {
+  core.subHeading(TASK, 'Transpiling Stylus to CSS');
+  return core.gulp
+    .src(core.config.files.styl)
     .pipe(stylus({
       'include css': true
     }))
-    .pipe(gulp.dest('build'));
+    .pipe(core.gulp.dest('build'));
 });

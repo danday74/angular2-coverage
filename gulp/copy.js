@@ -1,8 +1,9 @@
-const gulp = require('gulp');
-const config = require('../gulp.config');
+const TASK = 'copy';
+const core = require('../core-gulp-modules');
 
-gulp.task('copy', () => {
-  return gulp
-    .src(config.files.copy)
-    .pipe(gulp.dest('build'));
+core.gulp.task(TASK, () => {
+  core.subHeading(TASK, 'Copying from \'app\' to \'build\'');
+  return core.gulp
+    .src(core.config.files.copy)
+    .pipe(core.gulp.dest('build'));
 });

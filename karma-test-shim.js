@@ -1,4 +1,4 @@
-// /*global jasmine, __karma__, window*/
+/*global __karma__*/
 Error.stackTraceLimit = Infinity;
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
 
@@ -22,6 +22,7 @@ var allSpecFiles = Object.keys(window.__karma__.files)
   .filter(isSpecFile)
   .filter(isBuiltFile);
 
+//noinspection NodeModulesDependencies,ES6ModulesDependencies
 System.config({
   baseURL: '/base',
   packageWithIndex: true // sadly, we can't use umd packages (yet?)
@@ -29,10 +30,11 @@ System.config({
 
 System.import('systemjs.config.js')
   .then(function () {
+    //noinspection JSFileReferences
     return Promise.all([
       System.import('@angular/core/testing'),
       System.import('@angular/platform-browser-dynamic/testing')
-    ])
+    ]);
   })
   .then(function (providers) {
     var testing = providers[0];
@@ -43,7 +45,7 @@ System.import('systemjs.config.js')
       testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
   })
-  .then(function() {
+  .then(function () {
     // Finally, load all spec files.
     // This will run the tests directly.
     return Promise.all(

@@ -1,7 +1,10 @@
-const gulp = require('gulp');
-const open = require('gulp-open');
+const TASK = 'coverage-open';
+const core = require('../../core-gulp-modules');
+const intercept = require('gulp-intercept');
 
-gulp.task('coverage-open', () => {
-  return gulp.src('coverage/html/index.html')
-    .pipe(open());
+core.gulp.task(TASK, () => {
+  return core.gulp.src('coverage/html/index.html')
+    .pipe(intercept(file => {
+      core.subHeading(TASK, `CTRL CLICK to open file:///${file.path}`);
+    }));
 });

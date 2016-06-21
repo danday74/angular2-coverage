@@ -1,8 +1,9 @@
+//noinspection JSUnusedLocalSymbols,ThisExpressionReferencesGlobalObjectJS
 /**
  * System configuration for Angular 2 apps
  * Adjust as necessary for your application needs.
  */
-(function (global) {
+(function (global) { // eslint-disable-line no-unused-vars
 
   // map tells the System loader where to look for things
   var map = {
@@ -21,6 +22,7 @@
     'common',
     'compiler',
     'core',
+    'forms',
     'http',
     'platform-browser',
     'platform-browser-dynamic',
@@ -35,7 +37,7 @@
 
   // Bundled (~40 requests):
   function packUmd(pkgName) {
-    packages['@angular/' + pkgName] = {main: pkgName + '.umd.js', defaultExtension: 'js'};
+    packages['@angular/' + pkgName] = {main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js'};
   }
 
   var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
@@ -48,6 +50,7 @@
     packages: packages
   };
 
+  //noinspection ES6ModulesDependencies,NodeModulesDependencies
   System.config(config);
 
 })(this);
