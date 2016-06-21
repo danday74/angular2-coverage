@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import {AppComponent} from './app.component';
+import {AppComponent} from './app.component'
 
 import {
     expect, it, iit, xit,
@@ -10,7 +10,7 @@ import {
 
 import {TestComponentBuilder} from '@angular/compiler/testing';
 
-import {By}             from '@angular/platform-browser';
+import {By}             from '@angular/platform-browser'
 import {provide}        from '@angular/core';
 import {ViewMetadata}   from '@angular/core';
 import {PromiseWrapper} from '@angular/core/src/facade/promise';
@@ -40,9 +40,9 @@ describe('AppComponent with TCB', () => {
             tcb.createAsync(AppComponent).then(fixture => {
                 // fixture.detectChanges();  // would need to resolve a binding but we don't have a binding
 
-                let h1 = fixture.debugElement.query(el => el.name === 'h1').nativeElement;  // it works
+                // let h1 = fixture.debugElement.query(el => el.name === 'h1').nativeElement;  // it works
 
-                h1 = fixture.debugElement.query(By.css('h1')).nativeElement;            // preferred
+                let h1 = fixture.debugElement.query(By.css('h1')).nativeElement;            // preferred
 
                 expect(h1.innerText).toMatch(/angular 2 app/i, '<h1> should say something about "My Angular 2 App"');
             });
@@ -55,9 +55,9 @@ describe('AppComponent with TCB', () => {
             tcb.createAsync(AppComponent).then(fixture => {
                 // fixture.detectChanges();  // would need to resolve a binding but we don't have a binding
 
-                let h1 = fixture.debugElement.query(el => el.name === 'h1').nativeElement;  // it works
+                // let h1 = fixture.debugElement.query(el => el.name === 'h1').nativeElement;  // it works
 
-                h1 = fixture.debugElement.query(By.css('h1')).nativeElement;            // preferred
+                let h1 = fixture.debugElement.query(By.css('h1')).nativeElement;            // preferred
 
                 expect(h1.innerText).toMatch(/app/i, '<h1> should say something about "App"');
             });

@@ -1,4 +1,4 @@
-const TASK = 'test-build';
+const TASK = 'test-npm-build';
 const core = require('../core-gulp-modules');
 
 core.gulp.task(TASK, done => {
@@ -8,7 +8,6 @@ core.gulp.task(TASK, done => {
     'karma-build',
     'coverage-main',
     'coverage-summary-long',
-    'coverage-open',
-    'coverage-enforcer-hard',
+    'coverage-enforcer-hard', // coverage enforced
     done);
 });

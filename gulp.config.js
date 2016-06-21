@@ -12,7 +12,17 @@ const config = {
     tsd: ['typings/**/*.d.ts'],
     styl: ['app/**/*.styl', '!' + GLOBAL_STYL],
     stylStream: [GLOBAL_STYL],
-    copy: ['app/**/*.html', 'app/**/*.jpg', 'app/**/*.png', 'app/**/*.css', 'app/**/*.eot', 'app/**/*.svg', 'app/**/*.ttf', 'app/**/*.woff', 'app/**/*.woff2']
+    copy: [
+      'app/**/*.html',
+      'app/**/*.css',
+      'app/**/*.jpg',
+      'app/**/*.png',
+      'app/**/*.eot',
+      'app/**/*.svg',
+      'app/**/*.ttf',
+      'app/**/*.woff',
+      'app/**/*.woff2'
+    ]
   },
   coverageThresholds: {
     statements: GLOBAL_THRESHOLD,

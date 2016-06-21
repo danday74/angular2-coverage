@@ -3,19 +3,24 @@ const requireDir = require('require-dir');
 requireDir('gulp', {recurse: true});
 
 core.gulp.task('build', done => {
-  core.mainHeading('build', 'Starting build');
   core.runSequence(
-    'eslint',
-    'build-clean',
-    ['copy', 'styl-2-css', 'styl-2-css-stream', 'tslint', 'ts-2-js'],
+    'build-hard',
+    'test-npm-build',
     done);
 });
 
 core.gulp.task('start', done => {
   core.runSequence(
-    'build',
-    'test-watch',
+    'build-soft',
+    'test-npm-start',
     ['serve', 'watch'],
+    done);
+});
+
+core.gulp.task('test', done => {
+  core.runSequence(
+    'build-soft',
+    'test-npm-test',
     done);
 });
 

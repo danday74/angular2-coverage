@@ -1,13 +1,13 @@
-const TASK = 'test-watch';
+const TASK = 'test-npm-start';
 const core = require('../core-gulp-modules');
 
 core.gulp.task(TASK, done => {
   core.mainHeading(TASK, 'Starting test run');
   core.runSequence(
     'coverage-clean',
-    'karma-watch',
+    'karma-watch', // brief output
     'coverage-main',
-    'coverage-summary-short',
+    'coverage-summary-short', // brief summary
     'coverage-open',
     'coverage-enforcer-soft',
     done);

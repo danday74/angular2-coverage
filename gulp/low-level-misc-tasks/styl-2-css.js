@@ -1,5 +1,5 @@
 const TASK = 'styl-2-css';
-const core = require('../core-gulp-modules');
+const core = require('../../core-gulp-modules');
 const stylus = require('gulp-stylus');
 
 core.gulp.task(TASK, () => {

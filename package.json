@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "typings install",
+    "ncu": "ncu",
+    "typings": "typings",
     "checkupdates": "ncu",
     "typingsupdate": "sh typings.sh",
-    "typings": "typings",
-    "ncu": "ncu",
-    "start": "gulp --silent",
-    "build": "gulp build",
-    "test": "gulp build && gulp test"
+    "postinstall": "typings install",
+    "build": "gulp build --silent",
+    "start": "gulp start --silent",
+    "test": "gulp test --silent"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.2",
