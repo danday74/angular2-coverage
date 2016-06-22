@@ -2,6 +2,9 @@ angular2-coverage
 -----------------
 -----------------
 
+[![node version](https://img.shields.io/badge/node-6.2.2-brightgreen.svg)](https://nodejs.org)
+[![built with gulp](gulp.png)](http://gulpjs.com)
+
 An angular 2 gulp skeleton with unit testing and remapped coverage.
 
 Prereqs
