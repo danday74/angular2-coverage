@@ -13,7 +13,7 @@ core.gulp.task(TASK, () => {
 
   core.gulp.task('ts-2-js-watch', done => {
     core.runSequence(
-      ['ts-2-js', 'tslint'],
+      ['ts-2-js', 'tslint-soft'],
       'reload',
       'test-npm-start',
       done);
