@@ -10,7 +10,7 @@ export class AppComponent {
     public myTxt:string;
 
     constructor() {
-        this.myTxt = 'uncovered - ooooo'
+        this.myTxt = 'uncovered';
         if (false === true) {
             console.log(this.myTxt);
         }

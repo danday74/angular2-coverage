@@ -8,8 +8,8 @@ module.exports = (errors, file) => {
   for (let err of errors) {
     let line = err.startPosition.line + 1;
     let char = err.startPosition.character + 1;
-    line = (` 0${line}`).slice(-3);
-    char = (` 0${char}`).slice(-3);
+    line = (`  ${line}`).slice(-3);
+    char = (`  ${char}`).slice(-3);
     let strPos = `${line}:${char}`;
     let strChalk = core.chalk.red('error');
     let strErr = `${err.failure}  (${err.ruleName})`;
