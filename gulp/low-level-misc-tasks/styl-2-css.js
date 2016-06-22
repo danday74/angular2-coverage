@@ -25,7 +25,10 @@ const taskFunc = (TASK) => {
       console.log();
       console.log(err.message);
       if (isSoft) {
-        if (!isStream) {
+        if (isStream) {
+          console.log(core.chalk.red(`Error whilst ${msg}`));
+          console.log();
+        } else {
           let serious1 = core.serious('Errors in a component\'s external stylesheets may cause unit test \'Failed to load CSS\' failures for that component');
           console.log(serious1);
           let serious2 = core.serious('This is because errors prevent CSS file writing                                                                  ');
