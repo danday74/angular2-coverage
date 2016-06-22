@@ -21,6 +21,7 @@ core.gulp.task(TASK, () => {
     setTimeout(() => {
       let link = core.link(`http://localhost:${core.config.browserSyncPort}`);
       core.mainHeading(TASK, `CTRL CLICK to open ${link}`);
+      core.config.browserSync.reload();
     }, 1000);
   });
 });
