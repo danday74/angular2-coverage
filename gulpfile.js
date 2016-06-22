@@ -2,6 +2,8 @@ const core = require('./gulp-core');
 const requireDir = require('require-dir');
 requireDir('gulp', {recurse: true});
 
+console.log('mode =', core.getMode());
+
 core.gulp.task('build', done => {
   core.runSequence(
     'build-hard',

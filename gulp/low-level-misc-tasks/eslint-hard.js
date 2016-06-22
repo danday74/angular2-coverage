@@ -4,6 +4,7 @@ const eslint = require('gulp-eslint');
 
 core.gulp.task(TASK, function () {
   core.subHeading(TASK, 'Linting JavaScript');
+  //noinspection JSCheckFunctionSignatures
   return core.gulp.src(core.config.files.js)
     .pipe(eslint())
     .pipe(eslint.format('stylish', process.stdout))
