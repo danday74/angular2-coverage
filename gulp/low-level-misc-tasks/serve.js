@@ -19,7 +19,8 @@ core.gulp.task(TASK, () => {
   });
   core.config.browserSync.emitter.on('init', function () {
     setTimeout(() => {
-      core.mainHeading(TASK, `CTRL CLICK to open http://localhost:${core.config.browserSyncPort}`);
+      let link = core.link(`http://localhost:${core.config.browserSyncPort}`);
+      core.mainHeading(TASK, `CTRL CLICK to open ${link}`);
     }, 1000);
   });
 });

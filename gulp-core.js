@@ -13,6 +13,10 @@ const subHeading = (taskName, msg) => {
   console.log(`${taskName}: ${msg}`);
 };
 
+const link = url => {
+  return chalk.bgCyan.black(url);
+};
+
 module.exports = {
-  gulp, chalk, config, runSequence, path, mainHeading, subHeading
+  gulp, chalk, config, runSequence, path, mainHeading, subHeading, link
 };

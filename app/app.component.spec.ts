@@ -1,6 +1,7 @@
 /* tslint:disable:no-unused-variable */
 import {AppComponent} from './app.component';
 
+// noinspection ES6UnusedImports
 import {
     expect, it, iit, xit,
     describe, ddescribe, xdescribe,
@@ -10,8 +11,11 @@ import {
 
 import {TestComponentBuilder} from '@angular/compiler/testing';
 import {By}             from '@angular/platform-browser';
+// noinspection ES6UnusedImports
 import {provide}        from '@angular/core';
+// noinspection ES6UnusedImports
 import {ViewMetadata}   from '@angular/core';
+// noinspection ES6UnusedImports
 import {PromiseWrapper} from '@angular/core/src/facade/promise';
 
 describe('app.component.ts', () => {
