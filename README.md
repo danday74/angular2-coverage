@@ -2,6 +2,8 @@ angular2-coverage
 -----------------
 -----------------
 
+An angular 2 gulp skeleton with unit testing and remapped coverage.
+
 Install
 -------
 
