@@ -1,5 +1,5 @@
 const TASK = 'tslint-soft';
-const core = require('../../core-gulp-modules');
+const core = require('../../gulp-core');
 const tslint = require('gulp-tslint');
 const reporter = require('./tslint-reporter-function');
 

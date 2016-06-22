@@ -1,5 +1,5 @@
 const TASK = 'serve';
-const core = require('../../core-gulp-modules');
+const core = require('../../gulp-core');
 const rewrite = require('connect-modrewrite');
 
 core.gulp.task(TASK, () => {

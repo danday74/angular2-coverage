@@ -1,5 +1,5 @@
 const TASK = 'build-hard';
-const core = require('../core-gulp-modules');
+const core = require('../gulp-core');
 
 core.gulp.task(TASK, done => {
   core.mainHeading(TASK, 'Starting build');

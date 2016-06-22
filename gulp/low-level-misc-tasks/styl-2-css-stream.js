@@ -1,5 +1,5 @@
 const TASK = 'styl-2-css-stream';
-const core = require('../../core-gulp-modules');
+const core = require('../../gulp-core');
 const stylus = require('gulp-stylus');
 
 core.gulp.task(TASK, () => {

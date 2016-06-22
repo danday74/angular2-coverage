@@ -1,5 +1,5 @@
 const TASK = 'coverage-open';
-const core = require('../../core-gulp-modules');
+const core = require('../../gulp-core');
 const intercept = require('gulp-intercept');
 
 core.gulp.task(TASK, () => {

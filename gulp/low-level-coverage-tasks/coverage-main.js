@@ -1,5 +1,5 @@
 const TASK = 'coverage-main';
-const core = require('../../core-gulp-modules');
+const core = require('../../gulp-core');
 const remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
 
 core.gulp.task('coverage-main', () => {

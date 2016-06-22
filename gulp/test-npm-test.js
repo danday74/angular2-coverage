@@ -1,5 +1,5 @@
 const TASK = 'test-npm-test';
-const core = require('../core-gulp-modules');
+const core = require('../gulp-core');
 
 core.gulp.task(TASK, done => {
   core.mainHeading(TASK, 'Starting test run');

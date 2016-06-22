@@ -1,5 +1,5 @@
 const TASK = 'karma-watch';
-const core = require('../../core-gulp-modules');
+const core = require('../../gulp-core');
 const Server = require('karma').Server;
 
 core.gulp.task(TASK, done => {

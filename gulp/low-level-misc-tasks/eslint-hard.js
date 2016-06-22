@@ -1,5 +1,5 @@
 const TASK = 'eslint-hard';
-const core = require('../../core-gulp-modules');
+const core = require('../../gulp-core');
 const eslint = require('gulp-eslint');
 
 core.gulp.task(TASK, function () {

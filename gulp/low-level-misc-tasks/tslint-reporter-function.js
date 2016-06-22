@@ -1,4 +1,4 @@
-const core = require('../../core-gulp-modules');
+const core = require('../../gulp-core');
 const DIR = 'app';
 
 module.exports = (errors, file) => {

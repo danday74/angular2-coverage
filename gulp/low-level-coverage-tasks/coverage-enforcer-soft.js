@@ -1,5 +1,5 @@
 const TASK = 'coverage-enforcer-soft';
-const core = require('../../core-gulp-modules');
+const core = require('../../gulp-core');
 const intercept = require('gulp-intercept');
 const enforcer = require('./enforcer-function');
 

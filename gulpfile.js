@@ -1,4 +1,4 @@
-const core = require('./core-gulp-modules');
+const core = require('./gulp-core');
 const requireDir = require('require-dir');
 requireDir('gulp', {recurse: true});
 

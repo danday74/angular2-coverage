@@ -1,5 +1,5 @@
 const TASK = 'watch';
-const core = require('../core-gulp-modules');
+const core = require('../gulp-core');
 
 core.gulp.task(TASK, () => {
   core.mainHeading(TASK, 'Watching files');

@@ -1,5 +1,5 @@
 const TASK = 'coverage-summary-short';
-const core = require('../../core-gulp-modules');
+const core = require('../../gulp-core');
 const intercept = require('gulp-intercept');
 
 core.gulp.task(TASK, () => {

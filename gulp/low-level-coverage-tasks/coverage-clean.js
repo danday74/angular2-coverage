@@ -1,5 +1,5 @@
 const TASK = 'coverage-clean';
-const core = require('../../core-gulp-modules');
+const core = require('../../gulp-core');
 const del = require('del');
 
 core.gulp.task('coverage-clean', () => {

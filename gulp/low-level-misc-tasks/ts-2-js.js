@@ -1,5 +1,5 @@
 const TASK = 'ts-2-js';
-const core = require('../../core-gulp-modules');
+const core = require('../../gulp-core');
 const typescript = require('gulp-typescript');
 const tscConfig = require('../../tsconfig.json');
 const sourcemaps = require('gulp-sourcemaps');
