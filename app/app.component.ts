@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import * as _ from 'lodash';
 
 @Component({
     selector: 'my-app',
@@ -8,8 +9,13 @@ import {Component} from '@angular/core';
 
 export class AppComponent {
     public myTxt:string;
+    public numArray:number[];
 
     constructor() {
+        this.numArray = _.map([1, 2, 3], function (n) {
+            return n * 3;
+        });
+
         this.myTxt = 'uncovered';
         if (false === true) {
             console.log(this.myTxt);

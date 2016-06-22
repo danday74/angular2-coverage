@@ -1,11 +1,36 @@
-# TypeScript compiler
+# Third party libs
 
-There TS compiler knows nothing about third party libs
-To educate it, for example, run ..
+To use third party libs you must follow these steps.
 
-npm run typings -- install dt~lodash --global --save
+(1) To install and save **lodash** run ..
+ 
+```
+npm i -S lodash
+```
 
-Which will add an entry to typings.json
-It will also update the typings folder with required .d.ts files
+(2) To install and save **lodash** TypeScript definitions run ..
 
-Note that gulp task 'ts-2-js' sources ['app/**/*.ts', 'typings/**/*.d.ts']
+```
+typings install dt~lodash --global --save
+```
+
+(3) Update **systemjs.config.js** to let SystemJS know where to find **lodash**
+
+```
+var map = {
+    // ...
+    'lodash': 'node_modules/lodash/lodash.js'
+};
+```
+
+(4) Update **karma.conf.js** to make **lodash** available to your karma test runner browser
+
+```
+{pattern: 'node_modules/lodash/**/*.js', included: false, watched: false}
+```
+
+(5) Then in your TypeScript .ts file ...
+
+```
+import * as _ from 'lodash';
+```

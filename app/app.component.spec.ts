@@ -45,11 +45,11 @@ describe('app.component.ts', () => {
                 });
             })));
 
-        it('should have expected <h2> text',
+        it('should allow lodash access',
             async(inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
                 tcb.createAsync(AppComponent).then(fixture => {
-                    let h2 = fixture.debugElement.query(By.css('h2')).nativeElement;
-                    expect(h2.innerText).toMatch(/welcome/i, '<h2> should say something about "Welcome"');
+                    let instance = fixture.componentInstance;
+                    expect(instance.numArray).toEqual([3, 6, 9]);
                 });
             })));
     });

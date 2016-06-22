@@ -25,6 +25,8 @@ module.exports = config => {
       // RxJs.
       {pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false},
       {pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false},
+      // lodash
+      {pattern: 'node_modules/lodash/**/*.js', included: false, watched: false},
       // Angular 2 and the testing library
       {pattern: 'node_modules/@angular/**/*.js', included: false, watched: false},
       {pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false},
