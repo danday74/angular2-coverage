@@ -40,7 +40,7 @@ describe('app.component.ts', () => {
                 tcb.createAsync(AppComponent).then(fixture => {
                     // fixture.detectChanges(); // would need to resolve a binding but we don't have a binding
                     // let h1 = fixture.debugElement.query(el => el.name === 'h1').nativeElement; // it works
-                    let h1 = fixture.debugElement.query(By.css('h1')).nativeElement; // preferred
+                    let h1 = fixture.debugElement.query(By.css('h1.main-heading')).nativeElement; // preferred
                     expect(h1.innerText).toMatch(/angular 3 app/i, '<h1> should say something about "Angular 3 App"');
                 });
             })));
