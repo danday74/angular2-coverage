@@ -42,7 +42,10 @@ const taskFunc = (TASK) => {
     })
     .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '../app'}))
     .pipe(core.gulp.dest('build'))
-    .pipe(core.gulpif(isStream, core.config.browserSync.stream()));
+    // Passing the match CSS object to browserSync.stream supports CSS injection and sourcemaps
+    // However, the sourcemaps do not update on change without a manual refresh
+    // Not passing the match CSS object to browserSync.stream fixes this but causes CSS injection failure
+    .pipe(core.gulpif(isStream, core.config.browserSync.stream({match: '**/*.css'})));
 };
 
 let TASK1 = 'styl-2-css-soft';
