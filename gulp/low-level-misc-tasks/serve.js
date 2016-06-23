@@ -3,9 +3,9 @@ const core = require('../../gulp-core');
 const rewrite = require('connect-modrewrite');
 
 core.gulp.task(TASK, () => {
-  core.config.browserSync.init({
+  core.browserSync.init({
     server: {
-      port: core.config.browserSyncPort,
+      port: core.browserSyncPort,
       baseDir: ['build', '.'],
       middleware: [
         rewrite([
@@ -17,11 +17,11 @@ core.gulp.task(TASK, () => {
     },
     open: false
   });
-  core.config.browserSync.emitter.on('init', function () {
+  core.browserSync.emitter.on('init', function () {
     setTimeout(() => {
       let link = core.link(`http://localhost:${core.config.browserSyncPort}`);
       core.mainHeading(TASK, `CTRL CLICK to open ${link}`);
-      core.config.browserSync.reload();
+      core.browserSync.reload();
     }, 1000);
   });
 });

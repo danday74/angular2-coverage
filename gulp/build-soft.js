@@ -7,6 +7,8 @@ core.gulp.task(TASK, done => {
     'eslint-hard',
     'build-clean',
     'tslint-soft',
-    ['copy', 'styl-2-css-soft', 'styl-2-css-stream-soft', 'ts-2-js'],
+    'styl-2-css-soft',
+    'styl-2-css-stream-soft',
+    ['copy', 'ts-2-js'],
     done);
 });

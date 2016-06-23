@@ -1,9 +1,10 @@
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
+const browserSync = require('browser-sync').create();
 const chalk = require('chalk');
 const config = require('./gulp.config');
-const runSequence = require('run-sequence');
 const path = require('path');
+const runSequence = require('run-sequence');
 const VALID_MODES = ['build', 'start', 'test'];
 const DEFAULT_MODE = VALID_MODES[1];
 let modeCache;
@@ -35,5 +36,5 @@ const serious = msg => {
 };
 
 module.exports = {
-  gulp, gulpif, chalk, config, runSequence, path, getMode, mainHeading, subHeading, link, serious
+  gulp, gulpif, browserSync, chalk, config, path, runSequence, getMode, mainHeading, subHeading, link, serious
 };

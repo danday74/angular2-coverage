@@ -5,7 +5,7 @@ core.gulp.task(TASK, () => {
   core.mainHeading(TASK, 'Watching files');
 
   core.gulp.task('reload', (done => {
-    core.config.browserSync.reload();
+    core.browserSync.reload();
     setTimeout(() => {
       done();
     }, 1000);

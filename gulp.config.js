@@ -1,8 +1,6 @@
-const browserSync = require('browser-sync').create();
 const GLOBAL_STYL = 'app/global.styl';
 const GLOBAL_THRESHOLD = 50;
 const config = {
-  browserSync: browserSync,
   browserSyncPort: 3000,
   apiPhp: 'http://localhost:7777',
   vmPhp: 'https://10.20.14.108:9100',
