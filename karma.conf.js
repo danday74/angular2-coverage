@@ -51,15 +51,14 @@ module.exports = (config) => {
     preprocessors: {
       'build/**/!(*spec).js': ['coverage']
     },
-    reporters: ['mocha', 'coverage'],
 
+    reporters: ['mocha', 'coverage'],
+    mochaReporter: {},
     coverageReporter: {
       reporters: [
         {type: 'json', subdir: '.', file: 'coverage-final.json'}
       ]
     },
-
-    mochaReporter: {},
 
     port: 9876,
     colors: true,
