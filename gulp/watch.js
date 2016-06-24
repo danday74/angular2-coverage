@@ -11,15 +11,6 @@ core.gulp.task(TASK, () => {
     }, 1000);
   }));
 
-  core.gulp.task('xxwatchxx-ts-2-js', done => {
-    core.runSequence(
-      'tslint-soft',
-      'ts-2-js',
-      'reload',
-      'test-npm-start',
-      done);
-  });
-
   core.gulp.task('xxwatchxx-copy', done => {
     core.runSequence(
       'copy',
@@ -28,7 +19,7 @@ core.gulp.task(TASK, () => {
       done);
   });
 
-  core.gulp.task('xxwatchxx-styl-2-css-soft', done => {
+  core.gulp.task('xxwatchxx-styl-2-css', done => {
     core.runSequence(
       'styl-2-css-soft',
       'reload',
@@ -36,8 +27,17 @@ core.gulp.task(TASK, () => {
       done);
   });
 
-  core.gulp.watch(core.config.files.ts, ['xxwatchxx-ts-2-js']);
+  core.gulp.task('xxwatchxx-ts-2-js', done => {
+    core.runSequence(
+      'tslint-soft',
+      'ts-2-js-soft',
+      'reload',
+      'test-npm-start',
+      done);
+  });
+  
   core.gulp.watch(core.config.files.copy, ['xxwatchxx-copy']);
-  core.gulp.watch(core.config.files.styl, ['xxwatchxx-styl-2-css-soft']);
+  core.gulp.watch(core.config.files.styl, ['xxwatchxx-styl-2-css']);
+  core.gulp.watch(core.config.files.ts, ['xxwatchxx-ts-2-js']);
   core.gulp.watch(core.config.files.stylStream, ['styl-2-css-stream-soft']);
 });

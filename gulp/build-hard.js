@@ -9,6 +9,7 @@ core.gulp.task(TASK, done => {
     'tslint-hard',
     'styl-2-css-hard',
     'styl-2-css-stream-hard',
-    ['copy', 'ts-2-js'],
+    'ts-2-js-hard',
+    'copy',
     done);
 });
