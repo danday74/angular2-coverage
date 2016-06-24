@@ -12,6 +12,7 @@ export class AppComponent {
     public numArray:number[];
 
     constructor() {
+        console.log('Look at me in Chrome, sourcemaps are working!');
         this.numArray = _.map([1, 2, 3], (n) => {
             return n * 3;
         });
