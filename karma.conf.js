@@ -56,7 +56,7 @@ module.exports = (config) => {
     mochaReporter: {},
     coverageReporter: {
       reporters: [
-        {type: 'json', subdir: '.', file: 'coverage-final.json'}
+        {type: 'json', subdir: '.', file: 'coverage-js.json'}
       ]
     },
 

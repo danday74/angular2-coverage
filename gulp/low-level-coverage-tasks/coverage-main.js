@@ -4,13 +4,14 @@ const remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
 
 core.gulp.task('coverage-main', () => {
   core.subHeading(TASK, 'Generating remapped coverage reports');
-  return core.gulp.src('coverage/coverage-final.json')
+  return core.gulp.src('coverage/coverage-js.json')
     .pipe(remapIstanbul({
       reports: {
         'html': 'coverage/html',
-        'text-summary': 'coverage/text-summary.txt',
-        'text': 'coverage/text.txt',
-        'json-summary': 'coverage/json-summary.json'
+        'text-summary': 'coverage/coverage-ts-summary.txt',
+        'text': 'coverage/coverage-ts.txt',
+        'json-summary': 'coverage/coverage-ts-summary.json',
+        'json': 'coverage/coverage-ts.json'
       }
     }));
 });

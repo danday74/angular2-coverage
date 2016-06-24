@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
+const intercept = require('gulp-intercept');
 const browserSync = require('browser-sync').create();
 const chalk = require('chalk');
 const config = require('./gulp.config');
@@ -36,5 +37,17 @@ const serious = (msg) => {
 };
 
 module.exports = {
-  gulp, gulpif, browserSync, chalk, config, path, runSequence, getMode, mainHeading, subHeading, link, serious
+  gulp,
+  gulpif,
+  intercept,
+  browserSync,
+  chalk,
+  config,
+  path,
+  runSequence,
+  getMode,
+  mainHeading,
+  subHeading,
+  link,
+  serious
 };
