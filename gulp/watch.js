@@ -13,6 +13,7 @@ core.gulp.task(TASK, () => {
   });
 
   core.gulp.task('xxwatchxx-copy', (done) => {
+    console.log(core.watch('WATCH: copy'));
     core.runSequence(
       'copy',
       'reload',
@@ -21,6 +22,7 @@ core.gulp.task(TASK, () => {
   });
 
   core.gulp.task('xxwatchxx-ts-2-js', (done) => {
+    console.log(core.watch('WATCH: ts-2-js'));
     core.runSequence(
       'tslint-soft',
       'ts-2-js-soft',
@@ -30,6 +32,7 @@ core.gulp.task(TASK, () => {
   });
 
   core.gulp.task('xxwatchxx-styl-2-css', (done) => {
+    console.log(core.watch('WATCH: styl-2-css'));
     core.runSequence(
       'styl-2-css-soft',
       'reload',

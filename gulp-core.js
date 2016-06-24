@@ -37,6 +37,10 @@ const serious = (msg) => {
   return chalk.bgRed.white(msg);
 };
 
+const watch = (msg) => {
+  return chalk.bgBlue.white(msg);
+};
+
 module.exports = {
   gulp,
   gulpif,
@@ -51,5 +55,6 @@ module.exports = {
   mainHeading,
   subHeading,
   link,
-  serious
+  serious,
+  watch
 };
