@@ -2,7 +2,7 @@ const TASK = 'coverage-main';
 const core = require('../../gulp-core');
 const remapIstanbul = require('remap-istanbul/lib/gulpRemapIstanbul');
 
-core.gulp.task('coverage-main', () => {
+core.gulp.task(TASK, () => {
   core.subHeading(TASK, 'Generating remapped coverage reports');
   return core.gulp.src('coverage/coverage-js.json')
     .pipe(remapIstanbul({
