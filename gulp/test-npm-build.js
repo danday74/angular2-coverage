@@ -9,6 +9,6 @@ core.gulp.task(TASK, (done) => {
     'coverage-main',
     'coverage-summary-long',
     'coverage-open',
-    'coverage-enforcer-hard', // coverage enforced
+    'coverage-enforcer-hard',
     done);
 });
