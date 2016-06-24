@@ -30,16 +30,16 @@ describe('app.component.ts', () => {
 
         it('should instantiate component',
             async(inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-                tcb.createAsync(AppComponent).then(fixture => {
+                tcb.createAsync(AppComponent).then((fixture) => {
                     expect(fixture.componentInstance instanceof AppComponent).toBe(true, 'should create AppComponent');
                 });
             })));
 
         it('should have expected <h1> text',
             async(inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-                tcb.createAsync(AppComponent).then(fixture => {
+                tcb.createAsync(AppComponent).then((fixture) => {
                     // fixture.detectChanges(); // would need to resolve a binding but we don't have a binding
-                    // let h1 = fixture.debugElement.query(el => el.name === 'h1').nativeElement; // it works
+                    // let h1 = fixture.debugElement.query((el) => el.name === 'h1').nativeElement; // it works
                     let h1 = fixture.debugElement.query(By.css('h1.main-heading')).nativeElement; // preferred
                     expect(h1.innerText).toMatch(/angular 3 app/i, '<h1> should say something about "Angular 3 App"');
                 });
@@ -47,7 +47,7 @@ describe('app.component.ts', () => {
 
         it('should allow lodash access',
             async(inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-                tcb.createAsync(AppComponent).then(fixture => {
+                tcb.createAsync(AppComponent).then((fixture) => {
                     let instance = fixture.componentInstance;
                     expect(instance.numArray).toEqual([3, 6, 9]);
                 });

@@ -12,7 +12,7 @@ export class AppComponent {
     public numArray:number[];
 
     constructor() {
-        this.numArray = _.map([1, 2, 3], function (n) {
+        this.numArray = _.map([1, 2, 3], (n) => {
             return n * 3;
         });
 

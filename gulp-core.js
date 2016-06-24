@@ -27,11 +27,11 @@ const subHeading = (taskName, msg) => {
   console.log(`${taskName}: ${msg}`);
 };
 
-const link = url => {
+const link = (url) => {
   return chalk.bgCyan.black(url);
 };
 
-const serious = msg => {
+const serious = (msg) => {
   return chalk.bgRed.white(msg);
 };
 

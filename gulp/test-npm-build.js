@@ -1,7 +1,7 @@
 const TASK = 'test-npm-build';
 const core = require('../gulp-core');
 
-core.gulp.task(TASK, done => {
+core.gulp.task(TASK, (done) => {
   core.mainHeading(TASK, 'Starting test run');
   core.runSequence(
     'coverage-clean',

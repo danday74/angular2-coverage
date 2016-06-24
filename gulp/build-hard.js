@@ -1,7 +1,7 @@
 const TASK = 'build-hard';
 const core = require('../gulp-core');
 
-core.gulp.task(TASK, done => {
+core.gulp.task(TASK, (done) => {
   core.mainHeading(TASK, 'Starting build');
   core.runSequence(
     'eslint-hard',

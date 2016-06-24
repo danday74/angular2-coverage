@@ -21,7 +21,7 @@ const taskFunc = (TASK) => {
     .src(srcFiles)
     .pipe(sourcemaps.init())
     .pipe(myStylus)
-    .on('error', err => {
+    .on('error', (err) => {
       console.log();
       console.log(err.message);
       if (isSoft) {

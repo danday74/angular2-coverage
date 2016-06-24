@@ -11,7 +11,7 @@ core.gulp.task(TASK, () => {
       emitError: true,
       summarizeFailureOutput: true
     }))
-    .on('error', function (err) {
+    .on('error', (err) => {
       console.log(err.message);
       process.exit(1);
     });

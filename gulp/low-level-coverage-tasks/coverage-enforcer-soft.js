@@ -5,7 +5,7 @@ const enforcer = require('./enforcer-function');
 
 core.gulp.task(TASK, () => {
   return core.gulp.src(['coverage/json-summary.json'])
-    .pipe(intercept(file => {
+    .pipe(intercept((file) => {
       let result = enforcer(file);
       core.subHeading(TASK, result.message);
     }));

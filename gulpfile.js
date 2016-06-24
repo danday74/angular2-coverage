@@ -4,14 +4,14 @@ requireDir('gulp', {recurse: true});
 
 console.log('mode =', core.getMode());
 
-core.gulp.task('build', done => {
+core.gulp.task('build', (done) => {
   core.runSequence(
     'build-hard',
     'test-npm-build',
     done);
 });
 
-core.gulp.task('start', done => {
+core.gulp.task('start', (done) => {
   core.runSequence(
     'build-soft',
     'test-npm-start',
@@ -19,14 +19,14 @@ core.gulp.task('start', done => {
     done);
 });
 
-core.gulp.task('test', done => {
+core.gulp.task('test', (done) => {
   core.runSequence(
     'build-soft',
     'test-npm-test',
     done);
 });
 
-core.gulp.task('default', done => {
+core.gulp.task('default', (done) => {
   core.runSequence(
     'start',
     done);
