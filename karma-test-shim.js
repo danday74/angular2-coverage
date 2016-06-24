@@ -30,7 +30,7 @@ System.config({
 
 System.import('systemjs.config.js')
   .then(function () {
-    //noinspection JSFileReferences
+    //noinspection JSFileReferences,ES6ModulesDependencies
     return Promise.all([
       System.import('@angular/core/testing'),
       System.import('@angular/platform-browser-dynamic/testing')
