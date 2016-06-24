@@ -8,8 +8,6 @@ core.gulp.task(TASK, (done) => {
     configFile: core.path.join(__dirname, '../../karma.conf.js'),
     reporters: ['mocha', 'coverage']
   }, () => {
-    // TODO: Consider this log statement and delete or do something with it
-    console.log('XXXXX WHY CONSOLE LOG HERE! XXXXX');
     done();
   }).start();
 });

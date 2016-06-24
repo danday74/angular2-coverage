@@ -5,7 +5,8 @@ const reporter = require('./tslint-reporter-function');
 
 core.gulp.task(TASK, () => {
   core.subHeading(TASK, 'Linting TypeScript');
-  return core.gulp.src(core.config.files.ts)
+  return core.gulp
+    .src(core.config.files.ts)
     .pipe(tslint())
     .pipe(tslint.report(reporter, {
       emitError: true,

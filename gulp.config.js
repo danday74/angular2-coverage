@@ -27,6 +27,14 @@ const config = {
     branches: GLOBAL_THRESHOLD,
     functions: GLOBAL_THRESHOLD,
     lines: GLOBAL_THRESHOLD
+  },
+  coverageOutput: 'coverage/coverage-js.json',
+  coverageReports: {
+    'html': 'coverage/html',
+    'json-summary': 'coverage/coverage-ts-summary.json',
+    'json': 'coverage/coverage-ts.json',
+    'text-summary': 'coverage/coverage-ts-summary.txt',
+    'text': 'coverage/coverage-ts.txt'
   }
 };
 
