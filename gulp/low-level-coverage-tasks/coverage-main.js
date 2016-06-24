@@ -8,10 +8,10 @@ core.gulp.task('coverage-main', () => {
     .pipe(remapIstanbul({
       reports: {
         'html': 'coverage/html',
-        'text-summary': 'coverage/coverage-ts-summary.txt',
-        'text': 'coverage/coverage-ts.txt',
         'json-summary': 'coverage/coverage-ts-summary.json',
-        'json': 'coverage/coverage-ts.json'
+        'json': 'coverage/coverage-ts.json',
+        'text-summary': 'coverage/coverage-ts-summary.txt',
+        'text': 'coverage/coverage-ts.txt'
       }
     }));
 });
