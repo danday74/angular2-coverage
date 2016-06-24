@@ -5,7 +5,7 @@ core.gulp.task(TASK, () => {
   core.mainHeading(TASK, 'Watching files');
 
   core.gulp.task('reload', (done) => {
-    // Should reload be here or inside timeout?
+    // TODO: Should reload be here or inside timeout?
     core.browserSync.reload();
     setTimeout(() => {
       done();

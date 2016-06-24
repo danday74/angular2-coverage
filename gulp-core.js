@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
 const intercept = require('gulp-intercept');
+const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const chalk = require('chalk');
 const config = require('./gulp.config');
@@ -40,6 +41,7 @@ module.exports = {
   gulp,
   gulpif,
   intercept,
+  sourcemaps,
   browserSync,
   chalk,
   config,

@@ -1,6 +1,5 @@
 const core = require('../../gulp-core');
 const stylus = require('gulp-stylus');
-const sourcemaps = require('gulp-sourcemaps');
 const nib = require('nib');
 const BASEMSG = 'Transpiling Stylus to CSS';
 
@@ -19,7 +18,7 @@ const taskFunc = (TASK) => {
 
   return core.gulp
     .src(srcFiles)
-    .pipe(sourcemaps.init())
+    .pipe(core.sourcemaps.init())
     .pipe(myStylus)
     .on('error', (err) => {
       console.log();
@@ -40,7 +39,7 @@ const taskFunc = (TASK) => {
         process.exit(1);
       }
     })
-    .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '../app'}))
+    .pipe(core.sourcemaps.write('.', {includeContent: false, sourceRoot: '../app'}))
     .pipe(core.gulp.dest('build'))
     // Passing the match CSS object to browserSync.stream supports CSS injection and sourcemaps
     // However, the sourcemaps do not update on change without a manual refresh
@@ -48,10 +47,10 @@ const taskFunc = (TASK) => {
     .pipe(core.gulpif(isStream, core.browserSync.stream({match: '**/*.css'})));
 };
 
-let TASK1 = 'styl-2-css-soft';
-let TASK2 = 'styl-2-css-stream-soft';
-let TASK3 = 'styl-2-css-hard';
-let TASK4 = 'styl-2-css-stream-hard';
+const TASK1 = 'styl-2-css-soft';
+const TASK2 = 'styl-2-css-stream-soft';
+const TASK3 = 'styl-2-css-hard';
+const TASK4 = 'styl-2-css-stream-hard';
 
 core.gulp.task(TASK1, () => {
   return taskFunc(TASK1);

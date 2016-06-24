@@ -18,10 +18,11 @@ core.gulp.task(TASK, () => {
     open: false
   });
   core.browserSync.emitter.on('init', () => {
+    // TODO: Should reload be here or inside timeout?
+    core.browserSync.reload();
     setTimeout(() => {
       let link = core.link(`http://localhost:${core.config.browserSyncPort}`);
       core.mainHeading(TASK, `CTRL CLICK to open ${link}`);
-      core.browserSync.reload();
     }, 1000);
   });
 });
