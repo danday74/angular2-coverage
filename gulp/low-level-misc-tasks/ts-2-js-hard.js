@@ -7,12 +7,14 @@ core.gulp.task(TASK, () => {
   core.subHeading(TASK, 'Transpiling TypeScript to JavaScript');
   return core.gulp
     .src(core.config.files.ts.concat(core.config.files.tsd))
-    .pipe(core.gulpif(core.getMode() === 'start', core.sourcemaps.init()))
+    // TODO: Enforce sourcemaps for dev env only
+    .pipe(core.gulpif(true, core.sourcemaps.init()))
     .pipe(typescript(tscConfig.compilerOptions))
     .on('error', () => {
       process.exit(1);
     })
-    .pipe(core.gulpif(core.getMode() === 'start', core.sourcemaps.write('.', {
+    // TODO: Enforce sourcemaps for dev env only
+    .pipe(core.gulpif(true, core.sourcemaps.write('.', {
       includeContent: false,
       sourceRoot: '../app'
     })))

@@ -22,7 +22,7 @@
     "@angular/http": "2.0.0-rc.3",
     "@angular/platform-browser": "2.0.0-rc.3",
     "@angular/platform-browser-dynamic": "2.0.0-rc.3",
-    "@angular/router": "3.0.0-alpha.7",
+    "@angular/router": "3.0.0-alpha.8",
     "@angular/router-deprecated": "2.0.0-rc.2",
     "bootstrap": "^3.3.6",
     "core-js": "^2.4.0",
@@ -47,7 +47,8 @@
     "gulp-tslint": "^5.0.0",
     "gulp-typescript": "^2.13.6",
     "jasmine-core": "^2.4.1",
-    "karma": "^1.0.0",
+    "//": "karma 1.1.0 looks messay stay on 1.0.0 for now",
+    "karma": "1.0.0",
     "karma-coverage": "^1.0.0",
     "karma-jasmine": "^1.0.2",
     "karma-mocha-reporter": "^2.0.4",
@@ -59,7 +60,7 @@
     "remap-istanbul": "^0.6.4",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.1",
-    "tslint": "^3.11.0",
+    "tslint": "^3.12.1",
     "typings": "^1.0.5"
   }
 }

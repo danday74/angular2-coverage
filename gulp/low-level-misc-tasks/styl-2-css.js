@@ -18,7 +18,8 @@ const taskFunc = (TASK) => {
 
   return core.gulp
     .src(srcFiles)
-    .pipe(core.gulpif(core.getMode() === 'start', core.sourcemaps.init()))
+    // TODO: Enforce sourcemaps for dev env only
+    .pipe(core.gulpif(true, core.sourcemaps.init()))
     .pipe(myStylus)
     .on('error', (err) => {
       console.log();
@@ -39,7 +40,8 @@ const taskFunc = (TASK) => {
         process.exit(1);
       }
     })
-    .pipe(core.gulpif(core.getMode() === 'start', core.sourcemaps.write('.', {
+    // TODO: Enforce sourcemaps for dev env only
+    .pipe(core.gulpif(true, core.sourcemaps.write('.', {
       includeContent: false,
       sourceRoot: '../app'
     })))
