@@ -18,7 +18,7 @@ const taskFunc = (TASK) => {
 
   return core.gulp
     .src(srcFiles)
-    .pipe(core.sourcemaps.init())
+    .pipe(core.gulpif(core.getMode() === 'start', core.sourcemaps.init()))
     .pipe(myStylus)
     .on('error', (err) => {
       console.log();
@@ -39,7 +39,10 @@ const taskFunc = (TASK) => {
         process.exit(1);
       }
     })
-    .pipe(core.sourcemaps.write('.', {includeContent: false, sourceRoot: '../app'}))
+    .pipe(core.gulpif(core.getMode() === 'start', core.sourcemaps.write('.', {
+      includeContent: false,
+      sourceRoot: '../app'
+    })))
     .pipe(core.gulp.dest('build'))
     // Passing the match CSS object to browserSync.stream supports CSS injection and sourcemaps
     // However, the sourcemaps do not update on change without a manual refresh
