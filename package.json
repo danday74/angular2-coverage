@@ -1,6 +1,6 @@
 {
   "name": "web-ui",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "//": "dev'd on v6.2.2 prob works on lesser versions too",
   "engine": "node >= 6.2.2",

@@ -4,8 +4,8 @@ const rewrite = require('connect-modrewrite');
 
 core.gulp.task(TASK, () => {
   core.browserSync.init({
+    port: core.config.browserSyncPort,
     server: {
-      port: core.browserSyncPort,
       baseDir: ['build', '.'],
       middleware: [
         rewrite([
