@@ -14,9 +14,8 @@ core.gulp.task(TASK, () => {
       process.exit(1);
     })
     // TODO: Enforce sourcemaps for dev env only
-    .pipe(core.gulpif(true, core.sourcemaps.write('.', {
-      includeContent: false,
-      sourceRoot: '../app'
-    })))
+    .pipe(core.gulpif(true, core.sourcemaps.write(
+      core.config.sourcemaps.dir,
+      core.config.sourcemaps.options)))
     .pipe(core.gulp.dest('build'));
 });

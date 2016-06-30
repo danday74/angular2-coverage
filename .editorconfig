@@ -6,8 +6,15 @@ insert_final_newline = true
 
 [*.js]
 charset = utf-8
+indent_style = space
+indent_size = 2
 
-[app/**.js]
+[app/**.ts]
+charset = utf-8
+indent_style = space
+indent_size = 2
+
+[app/**.styl]
 indent_style = space
 indent_size = 2
 

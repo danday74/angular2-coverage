@@ -1,4 +1,4 @@
-//noinspection JSUnusedLocalSymbols,ThisExpressionReferencesGlobalObjectJS
+// noinspection JSUnusedLocalSymbols,ThisExpressionReferencesGlobalObjectJS
 /**
  * System configuration for Angular 2 apps
  * Adjust as necessary for your application needs.
@@ -49,9 +49,10 @@
   var config = {
     map: map,
     packages: packages
+    // baseURL: 'x'
   };
 
-  //noinspection ES6ModulesDependencies,NodeModulesDependencies
+  // noinspection ES6ModulesDependencies,NodeModulesDependencies
   System.config(config);
 
 })(this);

@@ -1,0 +1,13 @@
+<header>
+  <h1>My First Angular 2 App</h1>
+  <nav>
+    <a [routerLink]="['/route1']" [routerLinkActive]="'active'">Route 1</a>
+    <a [routerLink]="['/route2']" [routerLinkActive]="'active'">Route 2</a>
+  </nav>
+</header>
+<section class="main-outlet">
+  <router-outlet></router-outlet>
+</section>
+<footer>
+  There is no Copyright © 2016 here [Daniel Lewis]. No Rights Reserved.
+</footer>

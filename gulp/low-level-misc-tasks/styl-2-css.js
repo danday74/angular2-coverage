@@ -12,6 +12,7 @@ const taskFunc = (TASK) => {
   core.subHeading(TASK, msg);
   let myStylus = stylus({
     'include css': true,
+    // 'resolve url' : true,
     compress: true,
     use: nib()
   });
@@ -41,10 +42,9 @@ const taskFunc = (TASK) => {
       }
     })
     // TODO: Enforce sourcemaps for dev env only
-    .pipe(core.gulpif(true, core.sourcemaps.write('.', {
-      includeContent: false,
-      sourceRoot: '../app'
-    })))
+    .pipe(core.gulpif(true, core.sourcemaps.write(
+      core.config.sourcemaps.dir,
+      core.config.sourcemaps.options)))
     .pipe(core.gulp.dest('build'))
     // Passing the match CSS object to browserSync.stream supports CSS injection and sourcemaps
     // However, the sourcemaps do not update on change without a manual refresh
