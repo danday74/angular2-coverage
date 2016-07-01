@@ -16,6 +16,7 @@ export const routes:RouterConfig = [
   {path: 'route2', component: Route2Component},
   {
     path: '',
+    pathMatch: 'prefix',
     redirectTo: '/route1'
   }
 ];
