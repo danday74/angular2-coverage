@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
+// noinspection TypeScriptCheckImport
 import * as _ from 'lodash';
 
 @Component({

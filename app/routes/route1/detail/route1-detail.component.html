@@ -1,4 +1,9 @@
 <section class="route route1-detail">
   <h3>ROUTE 1 DETAIL VIEW</h3>
-  <div>{{person | json}}</div>
+  <div *ngIf="person">
+    <div>{{person | json}}</div>
+  </div>
+  <div *ngIf="!person">
+    <div>Can&apos;t find your man</div>
+  </div>
 </section>

@@ -2,7 +2,7 @@ const GLOBAL_STYL = 'app/global.styl';
 const GLOBAL_THRESHOLD = 50;
 // noinspection JSUnusedGlobalSymbols
 const config = {
-  browserSyncPort: 3000,
+  browserSyncPort: 4000,
   apiPhp: 'http://localhost:7777',
   vmPhp: 'https://10.20.14.108:9100',
   files: {
@@ -16,6 +16,7 @@ const config = {
       'app/**/*.css',
       'app/**/*.jpg',
       'app/**/*.png',
+      'app/**/*.ico',
       'app/**/*.eot',
       'app/**/*.svg',
       'app/**/*.ttf',
