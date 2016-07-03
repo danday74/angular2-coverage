@@ -1,7 +1,8 @@
 const TASK = 'ts-2-js-hard';
 const core = require('../../gulp-core');
 const typescript = require('gulp-typescript');
-const tscConfig = require('../../tsconfig.json');
+let tscConfig = require('../../tsconfig.json');
+delete tscConfig.compilerOptions.outDir;
 
 core.gulp.task(TASK, () => {
   core.subHeading(TASK, 'Transpiling TypeScript to JavaScript');

@@ -47,7 +47,8 @@ const config = {
       sourceRoot: (file) => {
         let srcRoot = 'app';
         let temp = file.path.replace(/\\/g, '/');
-        let filePath = temp.split(/\/app\/(.+)?/)[1];
+        let re = new RegExp(`\/${srcRoot}\/(.+)?`);
+        let filePath = temp.split(re)[1];
         let numDotDot = filePath.split('/').length;
         // noinspection JSPotentiallyInvalidConstructorUsage
         let range = Array.from(Array(numDotDot).keys());

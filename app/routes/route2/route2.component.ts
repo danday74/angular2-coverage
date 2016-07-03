@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-// noinspection TypeScriptCheckImport
 import * as _ from 'lodash';
 
 @Component({
@@ -19,7 +18,7 @@ export class Route2Component {
     });
   }
 
-  goToRoute1(id:number):void {
+  goToRoute1(id?:number):void {
     if (id == null) {
       this.router.navigate(['/route1']);
     } else {
