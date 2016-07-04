@@ -21,7 +21,8 @@ const config = {
       'app/**/*.svg',
       'app/**/*.ttf',
       'app/**/*.woff',
-      'app/**/*.woff2'
+      'app/**/*.woff2',
+      'app/**/*.min.js'
     ]
   },
   coverageThresholds: {
