@@ -1,13 +1,13 @@
 {
   "name": "angular2-coverage",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "private": true,
   "//": "dev'd on v6.2.2 prob works on lesser versions too",
   "engine": "node >= 6.2.2",
   "scripts": {
     "ncu": "ncu",
     "typings": "typings",
-    "postinstall": "typings install",
+    "postinstall": "typings install && test -d .git && cp git-hook-pre-push.sh .git/hooks/pre-push || true",
     "checkupdates": "ncu",
     "typingsupdate": "sh typings.sh",
     "build": "gulp build --silent",
