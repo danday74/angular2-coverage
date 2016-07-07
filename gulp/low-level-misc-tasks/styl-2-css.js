@@ -14,7 +14,8 @@ const taskFunc = (TASK) => {
     'include css': true,
     // 'resolve url' : true,
     compress: true,
-    use: nib()
+    use: nib(),
+    include: 'app'
   });
 
   return core.gulp
