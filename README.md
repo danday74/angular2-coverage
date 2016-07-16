@@ -7,11 +7,6 @@ angular2-coverage
 
 An angular 2 gulp skeleton with unit testing and remapped coverage.
 
-Prereqs
--------
-
-**npm i -g gulp-cli**
-
 Install
 -------
 
@@ -20,9 +15,9 @@ Install
 Commands
 --------
 
-* **npm start --silent** - Start dev server
-* **npm run build --silent** - Kick off a build
-* **npm test --silent** - Run test suite
+* **npm start -s** - Start dev server
+* **npm run build -s** - Kick off a build
+* **npm test -s** - Run test suite
 
 * **npm run checkupdates** - Check for package updates
 * **npm run typingsupdate** - Update typings (see [typings.sh](typings.sh))

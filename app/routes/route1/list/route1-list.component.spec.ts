@@ -30,7 +30,7 @@ describe('route1-list.component.ts', () => {
     })));
 
   it('ngOnInit()',
-    async(inject([TestComponentBuilder, XHRBackend], (tcb:TestComponentBuilder, mockBackend:any) => {
+    async(inject([TestComponentBuilder, XHRBackend], (tcb:TestComponentBuilder, mockBackend:MockBackend) => {
       tcb.createAsync(Route1ListComponent).then((fix:ComponentFixture<Route1ListComponent>) => {
 
         mockBackend.connections.subscribe(
@@ -49,7 +49,7 @@ describe('route1-list.component.ts', () => {
     })));
 
   it('ngOnInit() failure',
-    async(inject([TestComponentBuilder, XHRBackend], (tcb:TestComponentBuilder, mockBackend:any) => {
+    async(inject([TestComponentBuilder, XHRBackend], (tcb:TestComponentBuilder, mockBackend:MockBackend) => {
       tcb.createAsync(Route1ListComponent).then((fix:ComponentFixture<Route1ListComponent>) => {
 
         mockBackend.connections.subscribe(

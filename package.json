@@ -1,12 +1,13 @@
 {
   "name": "angular2-coverage",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "private": true,
   "//": "dev'd on v6.2.2 prob works on lesser versions too",
   "engine": "node >= 6.2.2",
   "scripts": {
     "ncu": "ncu",
     "typings": "typings",
+    "preinstall": "npm list -g gulp-cli || npm i -g gulp-cli",
     "postinstall": "typings install && test -d .git && cp git-hook-pre-push.sh .git/hooks/pre-push || true",
     "checkupdates": "ncu",
     "typingsupdate": "sh typings.sh",
@@ -44,7 +45,7 @@
     "gulp-intercept": "^0.1.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-stylus": "^2.4.0",
-    "gulp-tslint": "^5.0.0",
+    "gulp-tslint": "^6.0.1",
     "gulp-typescript": "^2.13.6",
     "jasmine-core": "^2.4.1",
     "karma": "1.0.0",

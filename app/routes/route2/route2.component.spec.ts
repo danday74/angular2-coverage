@@ -1,12 +1,12 @@
 import {addProviders, async, ComponentFixture, inject, TestComponentBuilder} from '@angular/core/testing';
 import {Router} from '@angular/router';
-import {MockRouter} from '../../mocks/mock-router';
+import {Mock} from '../../models/mock';
 import {Route2Component} from './route2.component';
 
 describe('route2.component.ts', () => {
 
   beforeEach(() => addProviders([
-    {provide: Router, useClass: MockRouter}
+    {provide: Router, useClass: Mock}
   ]));
 
   it('should instantiate component',
@@ -25,20 +25,20 @@ describe('route2.component.ts', () => {
     })));
 
   it('goToRoute1()',
-    async(inject([TestComponentBuilder, Router], (tcb:TestComponentBuilder, router:MockRouter) => {
+    async(inject([TestComponentBuilder, Router], (tcb:TestComponentBuilder, router:Router) => {
       tcb.createAsync(Route2Component).then((fix:ComponentFixture<Route2Component>) => {
+        router.navigate = jasmine.createSpy('navigate');
         let instance = fix.componentInstance;
-        spyOn(router, 'navigate').and.callThrough();
         instance.goToRoute1();
         expect(router.navigate).toHaveBeenCalledWith(['/route1']);
       });
     })));
 
   it('goToRoute1(id:number)',
-    async(inject([TestComponentBuilder, Router], (tcb:TestComponentBuilder, router:MockRouter) => {
+    async(inject([TestComponentBuilder, Router], (tcb:TestComponentBuilder, router:Router) => {
       tcb.createAsync(Route2Component).then((fix:ComponentFixture<Route2Component>) => {
+        router.navigate = jasmine.createSpy('navigate');
         let instance = fix.componentInstance;
-        spyOn(router, 'navigate').and.callThrough();
         instance.goToRoute1(10);
         expect(router.navigate).toHaveBeenCalledWith(['/route1', 10]);
       });

@@ -1,15 +1,14 @@
 import {addProviders, async, ComponentFixture, inject, TestComponentBuilder} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
 import {ActivatedRoute, Router, RouterOutletMap} from '@angular/router';
-import {MockActivatedRoute} from '../../mocks/mock-activated-route';
-import {MockRouter} from '../../mocks/mock-router';
+import {Mock} from '../../models/mock';
 import {Route1Component} from './route1.component';
 
 describe('route1.component.ts', () => {
 
   beforeEach(() => addProviders([
-    {provide: ActivatedRoute, useClass: MockActivatedRoute},
-    {provide: Router, useClass: MockRouter},
+    {provide: ActivatedRoute, useClass: Mock},
+    {provide: Router, useClass: Mock},
     {provide: RouterOutletMap, useClass: RouterOutletMap}
   ]));
 
@@ -27,4 +26,5 @@ describe('route1.component.ts', () => {
         expect(el.innerText).toMatch(/route 1 header/i, 'should have expected text');
       });
     })));
+
 });

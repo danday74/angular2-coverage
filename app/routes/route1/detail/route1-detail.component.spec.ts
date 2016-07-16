@@ -4,7 +4,7 @@ import {MockBackend, MockConnection} from '@angular/http/testing';
 import {By} from '@angular/platform-browser';
 import {ActivatedRoute} from '@angular/router';
 import {persons} from '../../../data/persons';
-import {MockActivatedRoute} from '../../../mocks/mock-activated-route';
+import {Mock} from '../../../models/mock';
 import {Route1DetailComponent} from './route1-detail.component';
 import {PersonService} from '../../../services/person.service';
 
@@ -12,7 +12,7 @@ describe('route1-detail.component.ts', () => {
 
   beforeEach(() => addProviders([
     HTTP_PROVIDERS, // must be first
-    {provide: ActivatedRoute, useClass: MockActivatedRoute},
+    {provide: ActivatedRoute, useClass: Mock},
     {provide: XHRBackend, useClass: MockBackend},
     PersonService
   ]));
@@ -33,7 +33,7 @@ describe('route1-detail.component.ts', () => {
     })));
 
   it('getPerson()',
-    async(inject([TestComponentBuilder, XHRBackend], (tcb:TestComponentBuilder, mockBackend:any) => {
+    async(inject([TestComponentBuilder, XHRBackend], (tcb:TestComponentBuilder, mockBackend:MockBackend) => {
       tcb.createAsync(Route1DetailComponent).then((fix:ComponentFixture<Route1DetailComponent>) => {
 
         mockBackend.connections.subscribe(
@@ -52,7 +52,7 @@ describe('route1-detail.component.ts', () => {
     })));
 
   it('getPerson() invalid ID',
-    async(inject([TestComponentBuilder, XHRBackend], (tcb:TestComponentBuilder, mockBackend:any) => {
+    async(inject([TestComponentBuilder, XHRBackend], (tcb:TestComponentBuilder, mockBackend:MockBackend) => {
       tcb.createAsync(Route1DetailComponent).then((fix:ComponentFixture<Route1DetailComponent>) => {
 
         const INVALID_ID = 9527;
@@ -73,7 +73,7 @@ describe('route1-detail.component.ts', () => {
     })));
 
   it('getPerson() failure',
-    async(inject([TestComponentBuilder, XHRBackend], (tcb:TestComponentBuilder, mockBackend:any) => {
+    async(inject([TestComponentBuilder, XHRBackend], (tcb:TestComponentBuilder, mockBackend:MockBackend) => {
       tcb.createAsync(Route1DetailComponent).then((fix:ComponentFixture<Route1DetailComponent>) => {
 
         mockBackend.connections.subscribe(

@@ -48,6 +48,7 @@ const config = {
       sourceRoot: (file) => {
         let srcRoot = 'app';
         let temp = file.path.replace(/\\/g, '/');
+        // noinspection ES6ModulesDependencies
         let re = new RegExp(`\/${srcRoot}\/(.+)?`);
         let filePath = temp.split(re)[1];
         let numDotDot = filePath.split('/').length;
