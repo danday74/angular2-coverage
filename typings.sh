@@ -7,7 +7,7 @@
 # I do not know how to revert changes so this script backs up typings.json
 
 echo "Backing up typings.json";
-cp typings.json typings.json.bak
+cp typings.json typings.json.bak &>/dev/null;
 
 echo "Updating typings.json";
 npm run typings -- install dt~core-js --global --save
