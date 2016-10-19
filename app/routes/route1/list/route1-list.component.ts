@@ -9,12 +9,13 @@ import {PersonService} from '../../../services/person.service';
 
 export class Route1ListComponent implements OnInit {
   // noinspection JSMismatchedCollectionQueryUpdate
-  private persons:Person[];
+  public persons: Person[];
 
-  constructor(private personService:PersonService) {
+  constructor(private personService: PersonService) {
     console.log('Look at me in Chrome, sourcemaps are working!');
   }
 
+  // noinspection JSUnusedGlobalSymbols
   ngOnInit() {
     this.personService.getPersons()
       .subscribe(

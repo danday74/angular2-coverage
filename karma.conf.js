@@ -14,24 +14,34 @@ module.exports = (config) => {
     files: [
       // System.js for module loading
       'node_modules/systemjs/dist/system.src.js',
+
       // Polyfills
       'node_modules/core-js/client/shim.js',
-      // Reflect and Zone.js
       'node_modules/reflect-metadata/Reflect.js',
+
+      // zone.js
       'node_modules/zone.js/dist/zone.js',
+      'node_modules/zone.js/dist/long-stack-trace-zone.js',
+      'node_modules/zone.js/dist/proxy.js',
+      'node_modules/zone.js/dist/sync-test.js',
       'node_modules/zone.js/dist/jasmine-patch.js',
       'node_modules/zone.js/dist/async-test.js',
       'node_modules/zone.js/dist/fake-async-test.js',
-      // RxJs.
+
+      // RxJs
       {pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false},
       {pattern: 'node_modules/rxjs/**/*.js.map', included: false, watched: false},
-      // lodash
-      {pattern: 'node_modules/lodash/**/*.js', included: false, watched: false},
-      // Angular 2 and the testing library
+
+      // Paths loaded via module imports:
+      // Angular itself
       {pattern: 'node_modules/@angular/**/*.js', included: false, watched: false},
       {pattern: 'node_modules/@angular/**/*.js.map', included: false, watched: false},
       {pattern: 'systemjs.config.js', included: false, watched: false},
       'karma-test-shim.js',
+
+      // lodash
+      {pattern: 'node_modules/lodash/**/*.js', included: false, watched: false},
+
       // Transpiled application & spec code paths loaded via module imports
       {pattern: 'build/**/*.js', included: false, watched: true},
       // Asset (HTML & CSS) paths loaded via Angular's component compiler
@@ -58,6 +68,10 @@ module.exports = (config) => {
       reporters: [
         {type: 'json', subdir: '.', file: 'coverage-js.json'}
       ]
+    },
+
+    client: {
+      captureConsole: false
     },
 
     port: 9876,

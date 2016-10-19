@@ -1,66 +1,74 @@
-import {addProviders, async, ComponentFixture, inject, TestComponentBuilder} from '@angular/core/testing';
-import {HTTP_PROVIDERS, Response, ResponseOptions, XHRBackend} from '@angular/http';
-import {MockBackend, MockConnection} from '@angular/http/testing';
+import {APP_BASE_HREF} from '@angular/common';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
+import {AppModule} from '../../../app.module';
 import {persons} from '../../../data/persons';
 import {Route1ListComponent} from './route1-list.component';
-import {PersonService} from '../../../services/person.service';
+
+// HTTP mocking imports
+import {BaseRequestOptions, Http, Response, ResponseOptions} from '@angular/http';
+import {MockBackend, MockConnection} from '@angular/http/testing';
 
 describe('route1-list.component.ts', () => {
 
-  beforeEach(() => addProviders([
-    HTTP_PROVIDERS, // must be first
-    {provide: XHRBackend, useClass: MockBackend},
-    PersonService
-  ]));
+  let fix: ComponentFixture<Route1ListComponent>;
+  let instance: Route1ListComponent;
+  let injector: any;
 
-  it('should instantiate component',
-    async(inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-      tcb.createAsync(Route1ListComponent).then((fix:ComponentFixture<Route1ListComponent>) => {
-        expect(fix.componentInstance instanceof Route1ListComponent).toBe(true, 'should instantiate component');
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [AppModule],
+      providers: [{provide: APP_BASE_HREF, useValue: '/'},
+        MockBackend,
+        BaseRequestOptions,
+        {
+          provide: Http,
+          useFactory: (pBackend: MockBackend, pOptions: BaseRequestOptions) => {
+            return new Http(pBackend, pOptions);
+          },
+          deps: [MockBackend, BaseRequestOptions]
+        }]
+    }).compileComponents()
+      .then(() => {
+        fix = TestBed.createComponent(Route1ListComponent);
+        instance = fix.componentInstance;
+        injector = fix.debugElement.injector;
       });
-    })));
+  }));
 
-  it('should have expected text',
-    async(inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-      tcb.createAsync(Route1ListComponent).then((fix:ComponentFixture<Route1ListComponent>) => {
-        let el = fix.debugElement.query(By.css('section.route1-list')).nativeElement;
-        expect(el.innerText).toMatch(/route 1 list view/i, 'should have expected text');
+  it('should instantiate component', () => {
+    expect(instance).toEqual(jasmine.any(Route1ListComponent));
+  });
+
+  it('should have expected text', () => {
+    let el = fix.debugElement.query(By.css('section.route1-list')).nativeElement;
+    expect(el.textContent).toMatch(/route 1 list view/i);
+  });
+
+  it('ngOnInit()', async(() => {
+    let backend = injector.get(MockBackend);
+    backend.connections.subscribe(
+      (connection: MockConnection) => {
+        connection.mockRespond(new Response(
+          new ResponseOptions({
+              body: persons
+            }
+          )));
       });
-    })));
 
-  it('ngOnInit()',
-    async(inject([TestComponentBuilder, XHRBackend], (tcb:TestComponentBuilder, mockBackend:MockBackend) => {
-      tcb.createAsync(Route1ListComponent).then((fix:ComponentFixture<Route1ListComponent>) => {
+    fix.detectChanges(); // Calls instance.ngOnInit()
+    expect(instance.persons.length).toBe(3);
+  }));
 
-        mockBackend.connections.subscribe(
-          (connection:MockConnection) => {
-            connection.mockRespond(new Response(
-              new ResponseOptions({
-                  body: persons
-                }
-              )));
-          });
-
-        let instance = fix.componentInstance;
-        instance.ngOnInit();
-        expect(instance.persons.length).toBe(3);
+  it('ngOnInit() failure', async(() => {
+    let backend = injector.get(MockBackend);
+    backend.connections.subscribe(
+      (connection: MockConnection) => {
+        connection.mockError(new Error('error'));
       });
-    })));
 
-  it('ngOnInit() failure',
-    async(inject([TestComponentBuilder, XHRBackend], (tcb:TestComponentBuilder, mockBackend:MockBackend) => {
-      tcb.createAsync(Route1ListComponent).then((fix:ComponentFixture<Route1ListComponent>) => {
-
-        mockBackend.connections.subscribe(
-          (connection:MockConnection) => {
-            connection.mockError(new Error('error'));
-          });
-
-        let instance = fix.componentInstance;
-        instance.ngOnInit();
-        expect(instance.persons).toBeUndefined();
-      });
-    })));
+    fix.detectChanges(); // Calls instance.ngOnInit()
+    expect(instance.persons).toBeUndefined();
+  }));
 
 });

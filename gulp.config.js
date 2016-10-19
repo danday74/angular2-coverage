@@ -45,19 +45,8 @@ const config = {
       includeContent: false,
       // Returns 'app' file relative to 'build' file
       // Used for locating the original file
-      sourceRoot: (file) => {
-        let srcRoot = 'app';
-        let temp = file.path.replace(/\\/g, '/');
-        // noinspection ES6ModulesDependencies
-        let re = new RegExp(`\/${srcRoot}\/(.+)?`);
-        let filePath = temp.split(re)[1];
-        let numDotDot = filePath.split('/').length;
-        // noinspection JSPotentiallyInvalidConstructorUsage
-        let range = Array.from(Array(numDotDot).keys());
-        range.forEach(() => {
-          srcRoot = `../${srcRoot}`;
-        });
-        return srcRoot;
+      sourceRoot: () => {
+        return '../app';
       }
     }
   }

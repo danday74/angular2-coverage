@@ -1,33 +1,32 @@
 import {APP_BASE_HREF} from '@angular/common';
-import {addProviders, async, ComponentFixture, inject, TestComponentBuilder} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-import {ActivatedRoute, Router} from '@angular/router';
 import {AppComponent} from './app.component';
-import {APP_ROUTER_PROVIDERS} from '../../app.routes';
-import {Mock} from '../../models/mock';
+import {AppModule} from '../../app.module';
 
 describe('app.component.ts', () => {
 
-  beforeEach(() => addProviders([
-    APP_ROUTER_PROVIDERS, // must be first
-    {provide: APP_BASE_HREF, useValue: '/'}, // must be second
-    {provide: ActivatedRoute, useClass: Mock},
-    {provide: Router, useClass: Mock}
-  ]));
+  let fix: ComponentFixture<AppComponent>;
+  let instance: AppComponent;
 
-  xit('should instantiate component - Skipping because [routerLinkActive] in HTML causes failure',
-    async(inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-      tcb.createAsync(AppComponent).then((fix:ComponentFixture<AppComponent>) => {
-        expect(fix.componentInstance instanceof AppComponent).toBe(true, 'should instantiate component');
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [AppModule],
+      providers: [{provide: APP_BASE_HREF, useValue: '/'}]
+    }).compileComponents()
+      .then(() => {
+        fix = TestBed.createComponent(AppComponent);
+        instance = fix.componentInstance;
       });
-    })));
+  }));
 
-  xit('should have expected text - Skipping because [routerLinkActive] in HTML causes failure',
-    async(inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-      tcb.createAsync(AppComponent).then((fix:ComponentFixture<AppComponent>) => {
-        let el = fix.debugElement.query(By.css('h1')).nativeElement;
-        expect(el.innerText).toMatch(/angular 2 app/i, 'should have expected text');
-      });
-    })));
+  it('should instantiate component', () => {
+    expect(instance).toEqual(jasmine.any(AppComponent));
+  });
+
+  it('should have expected text', () => {
+    let el = fix.debugElement.query(By.css('h1')).nativeElement;
+    expect(el.textContent).toMatch(/angular 2 app/i);
+  });
 
 });

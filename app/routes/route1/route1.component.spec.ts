@@ -1,30 +1,32 @@
-import {addProviders, async, ComponentFixture, inject, TestComponentBuilder} from '@angular/core/testing';
+import {APP_BASE_HREF} from '@angular/common';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-import {ActivatedRoute, Router, RouterOutletMap} from '@angular/router';
-import {Mock} from '../../models/mock';
+import {AppModule} from '../../app.module';
 import {Route1Component} from './route1.component';
 
 describe('route1.component.ts', () => {
 
-  beforeEach(() => addProviders([
-    {provide: ActivatedRoute, useClass: Mock},
-    {provide: Router, useClass: Mock},
-    {provide: RouterOutletMap, useClass: RouterOutletMap}
-  ]));
+  let fix: ComponentFixture<Route1Component>;
+  let instance: Route1Component;
 
-  it('should instantiate component',
-    async(inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-      tcb.createAsync(Route1Component).then((fix:ComponentFixture<Route1Component>) => {
-        expect(fix.componentInstance instanceof Route1Component).toBe(true, 'should instantiate component');
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [AppModule],
+      providers: [{provide: APP_BASE_HREF, useValue: '/'}]
+    }).compileComponents()
+      .then(() => {
+        fix = TestBed.createComponent(Route1Component);
+        instance = fix.componentInstance;
       });
-    })));
+  }));
 
-  it('should have expected text',
-    async(inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
-      tcb.createAsync(Route1Component).then((fix:ComponentFixture<Route1Component>) => {
-        let el = fix.debugElement.query(By.css('header.sub')).nativeElement;
-        expect(el.innerText).toMatch(/route 1 header/i, 'should have expected text');
-      });
-    })));
+  it('should instantiate component', () => {
+    expect(instance).toEqual(jasmine.any(Route1Component));
+  });
+
+  it('should have expected text', () => {
+    let el = fix.debugElement.query(By.css('header.sub')).nativeElement;
+    expect(el.textContent).toMatch(/route 1 header/i);
+  });
 
 });

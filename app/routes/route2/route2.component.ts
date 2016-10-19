@@ -8,17 +8,16 @@ import * as _ from 'lodash';
 })
 
 export class Route2Component {
-  // noinspection JSMismatchedCollectionQueryUpdate
-  private numArray:number[];
+  public numArray: number[];
 
-  constructor(private router:Router) {
+  constructor(private router: Router) {
     // numArray is an array of numbers and thus type can be inferred
     this.numArray = _.map([1, 2, 3], (n) => {
       return n * 3;
     });
   }
 
-  goToRoute1(id?:number):void {
+  goToRoute1(id?: number): void {
     if (id == null) {
       this.router.navigate(['/route1']);
     } else {
