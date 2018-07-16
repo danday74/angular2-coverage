@@ -3,7 +3,7 @@ angular2-coverage
 -----------------
 
 [![node version](https://img.shields.io/badge/node-6.2.2-brightgreen.svg)](https://nodejs.org)
-[![built with gulp](gulp.png)](http://gulpjs.com)
+[![built with gulp](gulp.png)](http://gulpjs.com) [![Greenkeeper badge](https://badges.greenkeeper.io/danday74/angular2-coverage.svg)](https://greenkeeper.io/)
 
 An angular 2 gulp skeleton with unit testing and remapped coverage.
 
